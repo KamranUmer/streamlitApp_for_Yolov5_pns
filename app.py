@@ -7,9 +7,9 @@ from datetime import datetime
 import os
 import wget
 
-import pathlib
-temp = pathlib.PosixPath
-pathlib.PosixPath = pathlib.WindowsPath
+# import pathlib
+# temp = pathlib.PosixPath
+# pathlib.PosixPath = pathlib.WindowsPath
 
 # Configurations
 CFG_MODEL_PATH = "models/best_weights_yolov5.pt"
@@ -104,7 +104,7 @@ def loadmodel(device):
         model_path = f"models/{url.split('/')[-1]}"
     else:
         model_path = CFG_MODEL_PATH
-    custom = "--hide-conf"
+    # custom = "--hide-conf"
     model = torch.hub.load('ultralytics/yolov5', "custom" , path=model_path, force_reload=True, device=device)
     return model
 
